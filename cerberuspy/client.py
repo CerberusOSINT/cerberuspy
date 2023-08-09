@@ -14,7 +14,7 @@ class Client():
 	def get_info(self):
 		return requests.post(
 			f"{self.api}/get_info",
-			json={
+			headers={
 				"cerber_id": self.cerber_id
 			}
 		).json()
@@ -22,7 +22,7 @@ class Client():
 	def search(self, target: str, target_type: Literal["phone", "email", "telegram", "card", "company", "inn", "full_name", "ip"]):
 		return requests.post(
 			f"{self.api}/search", 
-			json={
+			headers={
 				"cerber_id": self.cerber_id,
 				"target": target,
 				"target_type": target_type
